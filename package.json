@@ -1,0 +1,19 @@
+{
+  "name": "tz-generator",
+  "version": "1.0.0",
+  "description": "AI-powered Technical Specification Generator",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "ai",
+    "technical-specification",
+    "generator",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT"
+}
