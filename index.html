@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ð¢Ð ÐÐµÐ½ÐµÑÐ°ÑÐ¾Ñ | AI-powered Technical Specification Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#6366F1"/>
+                    <path d="M9 12H23M9 16H19M9 20H21" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h1>Ð¢Ð ÐÐµÐ½ÐµÑÐ°ÑÐ¾Ñ</h1>
+            </div>
+            <p class="tagline">ÐÑÐµÐ²ÑÐ°ÑÐ¸ÑÐµ Ð¸Ð´ÐµÑ Ð¿ÑÐ¾Ð´ÑÐºÑÐ° Ð² ÑÑÑÑÐºÑÑÑÐ¸ÑÐ¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐµÑÐ½Ð¸ÑÐµÑÐºÐ¾Ðµ Ð·Ð°Ð´Ð°Ð½Ð¸Ðµ Ð·Ð° ÑÐµÐºÑÐ½Ð´Ñ</p>
+        </header>
+
+        <main>
+            <form id="generator-form">
+                <div class="input-group">
+                    <label for="product-idea">ÐÐ¿Ð¸ÑÐ¸ÑÐµ Ð²Ð°ÑÑ Ð¸Ð´ÐµÑ Ð¿ÑÐ¾Ð´ÑÐºÑÐ°</label>
+                    <textarea 
+                        id="product-idea" 
+                        name="productIdea" 
+                        placeholder="ÐÐ°Ð¿ÑÐ¸Ð¼ÐµÑ: ÐÐ¾Ð±Ð¸Ð»ÑÐ½Ð¾Ðµ Ð¿ÑÐ¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð·Ð°ÐºÐ°Ð·Ð° ÐµÐ´Ñ Ð¸Ð· Ð¼ÐµÑÑÐ½ÑÑ ÑÐµÑÑÐ¾ÑÐ°Ð½Ð¾Ð² Ñ ÑÑÐ½ÐºÑÐ¸ÐµÐ¹ Ð¾ÑÑÐ»ÐµÐ¶Ð¸Ð²Ð°Ð½Ð¸Ñ ÐºÑÑÑÐµÑÐ° Ð² ÑÐµÐ°Ð»ÑÐ½Ð¾Ð¼ Ð²ÑÐµÐ¼ÐµÐ½Ð¸ Ð¸ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑÑÑ Ð¾Ð¿Ð»Ð°ÑÑ ÐºÑÐ¸Ð¿ÑÐ¾Ð²Ð°Ð»ÑÑÐ¾Ð¹..."
+                        required
+                    ></textarea>
+                    <div class="char-count"><span id="char-count">0</span> / 2000</div>
+                </div>
+
+                <div class="options-row">
+                    <div class="option-group">
+                        <label for="detail-level">Ð£ÑÐ¾Ð²ÐµÐ½Ñ Ð´ÐµÑÐ°Ð»Ð¸Ð·Ð°ÑÐ¸Ð¸</label>
+                        <select id="detail-level" name="detailLevel">
+                            <option value="brief">ÐÑÐ°ÑÐºÐ¾Ðµ Ð¢Ð</option>
+                            <option value="standard" selected>Ð¡ÑÐ°Ð½Ð´Ð°ÑÑÐ½Ð¾Ðµ Ð¢Ð</option>
+                            <option value="detailed">ÐÐ¾Ð´ÑÐ¾Ð±Ð½Ð¾Ðµ Ð¢Ð</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label for="language">Ð¯Ð·ÑÐº</label>
+                        <select id="language" name="language">
+                            <option value="ru" selected>Ð ÑÑÑÐºÐ¸Ð¹</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="generate-btn">
+                    <span class="btn-text">Ð¡Ð³ÐµÐ½ÐµÑÐ¸ÑÐ¾Ð²Ð°ÑÑ Ð¢Ð</span>
+                    <span class="btn-loading">
+                        <svg class="spinner" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+                        </svg>
+                        ÐÐµÐ½ÐµÑÐ°ÑÐ¸Ñ...
+                    </span>
+                </button>
+            </form>
+
+            <section id="result-section" class="hidden">
+                <div class="result-header">
+                    <h2>Ð¢ÐµÑÐ½Ð¸ÑÐµÑÐºÐ¾Ðµ Ð·Ð°Ð´Ð°Ð½Ð¸Ðµ</h2>
+                    <div class="result-actions">
+                        <button id="copy-btn" class="action-btn" title="ÐÐ¾Ð¿Ð¸ÑÐ¾Ð²Ð°ÑÑ">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                            </svg>
+                        </button>
+                        <button id="download-btn" class="action-btn" title="Ð¡ÐºÐ°ÑÐ°ÑÑ MD">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="result-content" class="result-content"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by AI | Built with Twin</p>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast hidden">Ð¡ÐºÐ¾Ð¿Ð¸ÑÐ¾Ð²Ð°Ð½Ð¾!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
